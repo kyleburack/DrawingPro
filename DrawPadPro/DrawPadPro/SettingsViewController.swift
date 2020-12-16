@@ -32,7 +32,9 @@ class SettingsViewController: UIViewController {
     var red: CGFloat = 0.0
     var green: CGFloat = 0.0
     var blue: CGFloat = 0.0
-      
+    struct GlobalVariable {
+        static var color = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+    }
     weak var delegate: SettingsViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -72,6 +74,7 @@ class SettingsViewController: UIViewController {
       blue = CGFloat(sliderBlue.value / 255.0)
       labelBlue.text = Int(sliderBlue.value).description
       
+        GlobalVariable.color = UIColor(red: red, green: green, blue: blue, alpha: transparacy)
       drawPreview()
     }
     

@@ -54,6 +54,8 @@ class ViewController: UIViewController {
         }
         tempImageView.image?.draw(in: view.bounds)
         
+        color = SettingsViewController.GlobalVariable.color
+        
         context.move(to: fromPoint)
         context.addLine(to: toPoint)
         
@@ -106,7 +108,6 @@ class ViewController: UIViewController {
       }
     }
 
-
     extension ViewController: SettingsViewControllerDelegate {
       func settingsViewControllerFinished(_ settingsViewController: SettingsViewController) {
         brushWidth = settingsViewController.brush
@@ -115,6 +116,7 @@ class ViewController: UIViewController {
                         green: settingsViewController.green,
                         blue: settingsViewController.blue,
                         alpha: transparancy)
+        color = SettingsViewController.GlobalVariable.color
         dismiss(animated: true)
       }
 }
